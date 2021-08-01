@@ -1,0 +1,12 @@
+[Unit]
+Descripton=Mount USB
+[Install]
+WantedBy=default.target
+
+[Service]
+ExecStart=/bin/bash /usr/local/usb-start-bash/scripts/usb-mount.bash
+Type=simple
+Restart=no
+
+# Be sure to leave a line feed.
+
