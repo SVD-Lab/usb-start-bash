@@ -1,8 +1,8 @@
 #!/bin/bash
-source ~/.bashrc
+source /home/$USER/.bashrc
 
-mkdir -p /home/ubuntu/mnt/
-mount /dev/sda1 /home/ubuntu/mnt/
-chmod 777 /home/ubuntu/mnt/
-bash /home/ubuntu/mnt/usb.bash
+mkdir -p /home/$USER/mnt/
+mount /dev/sda1 /home/$USER/mnt/
+chmod 777 /home/$USER/mnt/
+bash /home/$USER/mnt/usb.bash
 wait
