@@ -8,7 +8,7 @@
 
 ## PACKAGE DIRS
 DIR_NAME=$(cd $(dirname $0); pwd)
-BASE_NAME=$(basename $PROJECT_DIR)
+BASE_NAME=$(basename $DIR_NAME)
 
 ## INSTALL DIRS
 INSTALL_DIR='/usr/local/'
