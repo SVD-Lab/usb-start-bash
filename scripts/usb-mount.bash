@@ -1,9 +1,9 @@
 #!/bin/bash
-source /home/$USER/.bashrc
+source $HOME/.bashrc
 
-mkdir -p /home/$USER/mnt/
-mount /dev/sda1 /home/$USER/mnt/
-chmod 777 /home/$USER/mnt/
-chown -R $USER:$USER /home/$USER/mnt/
-bash /home/$USER/mnt/usb.bash
+mkdir -p $HOME/mnt/
+mount /dev/sda1 $HOME/mnt/
+chmod 777 $HOME/mnt/
+chown -R $USER:$USER $HOME/mnt/
+bash $HOME/mnt/usb.bash
 wait
