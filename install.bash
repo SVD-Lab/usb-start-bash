@@ -11,7 +11,7 @@ DIR_NAME=$(cd $(dirname $0); pwd)
 BASE_NAME=$(basename $DIR_NAME)
 
 ## INSTALL DIRS
-INSTALL_DIR='/usr/local/'
+INSTALL_DIR='/usr/local'
 BIN='/usr/local/bin'
 SYSTEM='/etc/systemd/system'
 
@@ -57,9 +57,9 @@ if [ "uninstall" = $1 ]; then
 
 ## INSTALL =============================================
 
-else if [ "install" = $1 ]; then
+elif [ "install" = $1 ]; then
     ## COPY FILES
-    cp $DIR_NAME/ $INSTALL_DIR/$BASE_NAME
+    cp -r $DIR_NAME/ $INSTALL_DIR/$BASE_NAME
 
     for service_file in $INSTALL_DIR/$BASE_NAME/scripts/*.service ; do
 
