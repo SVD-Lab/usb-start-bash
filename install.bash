@@ -7,8 +7,11 @@
 # sudo bash ./install.bash uninstall
 
 ## PACKAGE DIRS
-DIR_NAME=$(cd $(dirname $0); pwd)
-BASE_NAME=$(basename $DIR_NAME)
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+_USER=${SCRIPT_DIR##*home/}
+USER=${_USER%%/*}
+
+BASE_NAME=$(basename $SCRIPT_DIR)
 
 ## INSTALL DIRS
 INSTALL_DIR='/usr/local'
@@ -59,7 +62,7 @@ if [ "uninstall" = $1 ]; then
 
 elif [ "install" = $1 ]; then
     ## COPY FILES
-    cp -r $DIR_NAME/ $INSTALL_DIR/$BASE_NAME
+    cp -r $SCRIPT_DIR/ $INSTALL_DIR/$BASE_NAME
 
     for service_file in $INSTALL_DIR/$BASE_NAME/scripts/*.service ; do
 
