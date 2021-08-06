@@ -10,13 +10,13 @@ USER=${_USER%%/*}
 
 # Connect Wi-Fi ==============================================
 
-cp $HOME_DIR/mnt/99-manual.yaml /etc/netplan/
+cp $SCRIPT_DIR/mnt/99-manual.yaml /etc/netplan/
 netplan apply
 
 IP_NAME=`ip -4 a | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v 127 | tr -d .`
 while [ -z ${IP_NAME} ]; do
-        IP_NAME=`ip -4 a | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v 127 | tr -d .`
-        sleep 2
+    IP_NAME=`ip -4 a | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v 127 | tr -d .`
+    sleep 2
 done
 
 # LOG ==========================================================
