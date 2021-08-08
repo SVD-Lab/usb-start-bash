@@ -15,8 +15,8 @@ netplan apply
 
 IP_NAME=`ip -4 a | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v 127 | tr -d .`
 while [ -z ${IP_NAME} ]; do
-    IP_NAME=`ip -4 a | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v 127 | tr -d .`
-    sleep 2
+        IP_NAME=`ip -4 a | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v 127 | tr -d .`
+        sleep 2
 done
 
 # LOG ==========================================================
@@ -35,6 +35,6 @@ for i in $SCRIPT_DIR/launch/*.launch.py; do
     [ -f "$i" ] | ros2 launch $i &
 done
 
-bash $SCRIPT_DIR/start-microxrceagent.bash &
+bash $SCRIPT_DIR/microxrceagent.bash &
 
 wait
