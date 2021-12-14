@@ -10,7 +10,7 @@ USER=${_USER%%/*}
 
 # Connect Wi-Fi ==============================================
 
-cp $SCRIPT_DIR/mnt/99-manual.yaml /etc/netplan/
+cp $SCRIPT_DIR/99-manual.yaml /etc/netplan/
 netplan apply
 
 IP_NAME=`ip -4 a | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v 127 | tr -d .`
@@ -23,18 +23,18 @@ done
 TIME=`date`
 TIME_UNIX=`date +%s`
 IP=`ip -4 a | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v 127`
-LOG_DIR=/home/$USER/mnt/log
+LOG_DIR=$SCRIPT_DIR/log
 
 mkdir -p $LOG_DIR
 echo $IP' ('$TIME')' >>  $LOG_DIR/log_$TIME_UNIX.txt
 
 # ROS ============================================================
-source /home/$USER/at2-ws/setup.bash foxy
+source $SCRIPT_DIR/install_aarch64/setup.bash
 
 for i in $SCRIPT_DIR/launch/*.launch.py; do
     [ -f "$i" ] | ros2 launch $i &
 done
 
-bash $SCRIPT_DIR/microxrceagent.bash &
+# bash $SCRIPT_DIR/microxrceagent.bash &
 
 wait
