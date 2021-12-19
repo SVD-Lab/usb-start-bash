@@ -30,6 +30,7 @@ echo $IP' ('$TIME')' >>  $LOG_DIR/log_$TIME_UNIX.txt
 
 # ROS ============================================================
 source $SCRIPT_DIR/install_aarch64/setup.bash
+source /home/ubuntu/depthai_ws/install/local_setup.bash
 
 for i in $SCRIPT_DIR/launch/*.launch.py; do
     [ -f "$i" ] | ros2 launch $i &
