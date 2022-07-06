@@ -1,2 +1,2 @@
 # usb-start-bash
-For developer using ubuntu.
+Programs that automatically launch programs on USB memory
