@@ -5,5 +5,5 @@ source /home/${USER}/.bashrc
 mkdir -p /home/${USER}/mnt/
 sudo mount /dev/sda1 /home/${USER}/mnt/ -o umask=000
 sudo chmod -R 755 /home/${USER}/mnt/
-bash /home/${USER}/mnt/usb.bash
+sudo bash /home/${USER}/mnt/usb.bash
 wait
