@@ -1,0 +1,11 @@
+[Unit]
+Descripton=RTC-Read
+[Install]
+WantedBy=default.target
+
+[Service]
+ExecStart=/bin/bash /usr/local/usb-start-bash/scripts/rtc_read.bash
+Type=simple
+Restart=no
+
+# Be sure to leave a line feed.
