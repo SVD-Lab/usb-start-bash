@@ -33,7 +33,10 @@ fi
 # COPY FILES
 cp -r $SCRIPT_DIR/ $INSTALL_DIR/$BASE_NAME
 
-for service_file in $INSTALL_DIR/$BASE_NAME/scripts/*.service ; do
+# $INSTALL_DIR/$BASE_NAME/scripts/*.service
+FILE_LIST=`ls $INSTALL_DIR/$BASE_NAME/scripts/*.service`
+
+for service_file in $FILE_LIST ; do
     ## SETTING SERVICE BASE NAME
     FILE=`basename $service_file`
 
