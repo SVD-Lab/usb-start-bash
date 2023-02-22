@@ -1,5 +1,7 @@
 [Unit]
 Descripton=Mount USB
+Requires=local-fs.target
+After=local-fs.target
 [Install]
 WantedBy=default.target
 
