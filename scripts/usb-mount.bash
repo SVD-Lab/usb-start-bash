@@ -1,7 +1,15 @@
 #!/bin/bash
 # RUN as "${USER}" (e.g. ubuntu)
-
 # /usr/local/usb-mount-bash/scripts/usb-mount.bash
+
+######## usb-mount.bash ########
+## 1. create ~/mnt/
+## 2. find /dev/sda1 (if not found, echo unixtime)
+## 3. mount /dev/sda1 ~/mnt/
+## 4. run ~/mnt/update.bash
+## 5. run ~/mnt/usb.bash
+## 6. wait while (5) is running
+################################
 
 source /home/${USER}/.bashrc
 
