@@ -31,6 +31,7 @@ fi
 
 ## INSTALL =============================================
 # COPY FILES
+rm -rf $INSTALL_DIR/$BASE_NAME
 cp -r $SCRIPT_DIR/ $INSTALL_DIR/$BASE_NAME
 
 # $INSTALL_DIR/$BASE_NAME/scripts/*.service
