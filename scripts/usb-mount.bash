@@ -15,6 +15,20 @@ source /home/${USER}/.bashrc
 
 mkdir -p /home/${USER}/mnt/
 
+# (mount-NG: 21) ========================================================
+gpio_number_umounted=21
+echo "${gpio_number_umounted}" > /sys/class/gpio/export
+echo "out" > /sys/class/gpio/gpio${gpio_number_umounted}/direction
+echo "0" > /sys/class/gpio/gpio${gpio_number_umounted}/value
+# ================================================================
+
+# (mount-OK: 20) ========================================================
+gpio_number_mounted=20
+echo "${gpio_number_mounted}" > /sys/class/gpio/export
+echo "out" > /sys/class/gpio/gpio${gpio_number_mounted}/direction
+echo "0" > /sys/class/gpio/gpio${gpio_number_mounted}/value
+# ================================================================
+
 # loop (while find /dev/sda1)
 while [ ! -e /dev/sda1 ]; do
     TIME=`date`
@@ -23,6 +37,17 @@ while [ ! -e /dev/sda1 ]; do
 done
 
 sudo mount /dev/sda1 /home/${USER}/mnt/ -o umask=000
+
+if [ $? -eq 0 ]; then
+    echo "usb mounted"
+    echo "1" > /sys/class/gpio/gpio${gpio_number_mounted}/value
+    echo "0" > /sys/class/gpio/gpio${gpio_number_umounted}/value
+else
+    echo "usb mount failed"
+    echo "0" > /sys/class/gpio/gpio${gpio_number_mounted}/value
+    echo "1" > /sys/class/gpio/gpio${gpio_number_umounted}/value
+fi
+
 sudo chmod -R 755 /home/${USER}/mnt/
 
 sudo bash /home/${USER}/mnt/update.bash
