@@ -28,9 +28,9 @@ sudo sh -c 'GPIO_NUM=20 && echo "0" > /sys/class/gpio/gpio${GPIO_NUM}/value'
 # ================================================================
 
 # loop (while find /dev/sda1)
+TIME=`date`
+echo "waiting for usb... (time: ${TIME})"
 while [ ! -e /dev/sda1 ]; do
-    TIME=`date`
-    # echo "waiting for usb... (time: ${TIME})"
     sleep 2
 done
 
